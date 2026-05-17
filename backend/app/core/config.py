@@ -16,10 +16,16 @@ class Settings(BaseSettings):
     DEBUG: bool = False
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
-    CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173"]
-    
+    CORS_ORIGINS: List[str] = [
+        "http://localhost:3000", 
+        "http://localhost:5173", 
+        "https://ai-coding-mentor.vercel.app",
+        "https://ai-coding-mentor-theta.vercel.app"
+    ]
+    CORS_ORIGINS_JSON: str = "" # Allows overriding via ENV as a JSON string
+
     # Database
-    DATABASE_URL: str = "sqlite+aiosqlite:///./mentor_agent.db"
+    DATABASE_URL: str = "sqlite+aiosqlite:////tmp/mentor_agent.db"
     
     # Cloud Deployment
     GCP_PROJECT_ID: str = "second-brain-496517"
