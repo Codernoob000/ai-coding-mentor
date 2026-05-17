@@ -71,10 +71,9 @@ graph LR
 ---
 
 ## 📸 UI Preview
-
 | Landing Page | Mentor Chat |
 | :---: | :---: |
-| ![Landing Placeholder](./screenshots/landing page.png) | ![Chat Placeholder](./screenshots/chat -page.png) |
+| ![Landing Page](./screenshots/landing-page.png) | ![Mentor Chat](./screenshots/chat-page.png) |
 
 ---
 
