@@ -74,7 +74,7 @@ graph LR
 
 | Landing Page | Mentor Chat |
 | :---: | :---: |
-| ![Landing Placeholder](https://via.placeholder.com/400x250?text=Modern+AI+Landing+Page) | ![Chat Placeholder](https://via.placeholder.com/400x250?text=Socratic+Chat+Interface) |
+| ![Landing Placeholder](./screenshots/landing page.png) | ![Chat Placeholder](./screenshots/chat -page.png) |
 
 ---
 
