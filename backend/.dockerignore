@@ -1,0 +1,22 @@
+# Optimized Build Context
+venv/
+.env
+.git/
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.db
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+Dockerfile
+docker-compose.yml
+deploy.sh
+README.md
+.vscode/
+.idea/
+.gemini/
+workspace/

@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8080"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      # Mount the DB locally so it persists across container restarts
+      - ./mentor_agent.db:/app/mentor_agent.db
+    restart: always
+    # Use reload for local dev (overrides CMD in Dockerfile)
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload --proxy-headers
