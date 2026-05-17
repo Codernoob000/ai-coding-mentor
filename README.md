@@ -14,14 +14,22 @@ cd backend
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+# Copy .env.example to .env and add your Gemini API Key
+uvicorn app.main:app --reload --port 8080
 ```
 
 ### 2. Frontend
 ```powershell
 cd frontend
 npm install
+# Ensure .env exists with VITE_API_BASE_URL=http://localhost:8080
 npm run dev
 ```
 
-The application will be available at http://localhost:3000
+## Production Deployment
+
+### Backend (Google Cloud Run)
+The backend is deployed to: `https://ai-mentor-backend-309500508226.us-central1.run.app`
+
+### Frontend Configuration
+When deploying the frontend (e.g., to Vercel), ensure `VITE_API_BASE_URL` is set to the production backend URL.

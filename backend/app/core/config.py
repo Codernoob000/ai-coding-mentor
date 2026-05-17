@@ -12,10 +12,11 @@ class Settings(BaseSettings):
     
     # App Settings
     APP_NAME: str = "AI Coding Mentor"
+    PORT: int = 8080
     DEBUG: bool = False
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
-    CORS_ORIGINS: List[str] = ["*"]
+    CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:5173"]
     
     # Database
     DATABASE_URL: str = "sqlite+aiosqlite:///./mentor_agent.db"

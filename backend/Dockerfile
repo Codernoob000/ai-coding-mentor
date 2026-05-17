@@ -52,11 +52,11 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
   CMD python3 -c "import http.client; import sys; c = http.client.HTTPConnection('localhost', 8080); c.request('GET', '/api/v1/health'); sys.exit(0 if c.getresponse().status == 200 else 1)"
 
 # 8. Optimized Uvicorn Execution
-# Using 1 worker for Cloud Run is often preferred to allow the platform to scale pods
-CMD ["uvicorn", "app.main:app", \
-     "--host", "0.0.0.0", \
-     "--port", "8080", \
-     "--proxy-headers", \
-     "--forwarded-allow-ips", "*", \
-     "--timeout-keep-alive", "60", \
-     "--no-access-log"]
+# Using shell form to allow environment variable expansion for $PORT
+CMD uvicorn app.main:app \
+    --host 0.0.0.0 \
+    --port ${PORT:-8080} \
+    --proxy-headers \
+    --forwarded-allow-ips "*" \
+    --timeout-keep-alive 60 \
+    --no-access-log

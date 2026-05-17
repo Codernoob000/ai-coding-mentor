@@ -27,14 +27,14 @@ export const useChat = () => {
     abortControllerRef.current = new AbortController();
 
     try {
-      const data = await fetchWithBackoff(() => 
-        apiClient<MentorResponse>('http://localhost:8000/api/v1/chat', {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+      const data = await fetchWithBackoff(() =>
+        apiClient<MentorResponse>(`${baseUrl}/api/v1/chat`, {
           method: 'POST',
           body: JSON.stringify({ message: text, session_id: sessionId }),
           signal: abortControllerRef.current?.signal
         })
       );
-      
       const assistantMsg: Message = {
         id: uuidv4(),
         role: 'assistant',

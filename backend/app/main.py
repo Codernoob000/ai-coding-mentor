@@ -62,4 +62,4 @@ app.include_router(chat.router, prefix="/api/v1", tags=["Chat"])
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_config=None)
+    uvicorn.run(app, host="0.0.0.0", port=settings.PORT, log_config=None)
